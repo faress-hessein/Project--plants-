@@ -244,7 +244,7 @@ function onInit() {
     let div = document.createElement("div");
     div.classList.add("item");
     div.innerHTML = `
-            <img src="Media/manu-prodact/${item.img}" />
+            <img src="Media/manu-prodact/${item.img}" loading="lazy" />
         <div class="text">
           <h3>${item.name}</h3>
           <span class="${item.color}"></span>
