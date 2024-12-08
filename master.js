@@ -242,9 +242,11 @@ let total = document.querySelector(".total");
 function onInit() {
   arrProdact.forEach((item, key) => {
     let div = document.createElement("div");
+    let col = document.createElement("div");
+    col.classList.add("col-6", "col-md-4", "col-lg-3", "col-xxl-2");
     div.classList.add("item");
     div.innerHTML = `
-            <img src="Media/manu-prodact/${item.img}" loading="lazy" />
+            <img src="Media/manu-prodact/${item.img}" loading="lazy" class="img-fluid"/>
         <div class="text">
           <h3>${item.name}</h3>
           <span class="${item.color}"></span>
@@ -252,7 +254,8 @@ function onInit() {
         <p><small>$</small>${item.price}</p>
         <i onclick="addToCart(${key})" class="fa-solid fa-cart-shopping add-shopping-cart"></i>
     `;
-    Prodacts.appendChild(div);
+    Prodacts.appendChild(col);
+    col.appendChild(div);
   });
 }
 if (cart) {
