@@ -18,7 +18,9 @@
   .stores .Collection,
   .stores .store .box .info span,
   .stores .store .box .info + span i,
-  .trending-product h4 {
+  .trending-product h4,
+  .stores .box .info + span i,
+  .trending-product .trending-box .info ul {
     color: #ddd;
   }
   .stores .Collection span {
@@ -36,12 +38,6 @@ html {
 }
 a {
   text-decoration: none;
-}
-.container {
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-left: 20px;
-  margin-right: 20px;
 }
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -65,7 +61,7 @@ button {
   height: 100vh;
 }
 .landing .container {
-  padding: 50px 15px;
+  padding: 50px 0px;
   height: 100%;
 }
 .landing .header {
@@ -250,18 +246,13 @@ button {
 /* End Landing*/
 /* Start col-icon */
 .col-icon .container {
-  display: grid;
-  gap: 20px;
-  min-height: 150px;
-  justify-content: space-around;
   margin-top: 40px;
   margin-bottom: 40px;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 .col-icon .icon {
   box-shadow: 0 0 10px #ddd;
   min-width: 200px;
-  padding: 20px;
+  padding: 20px 10px;
 }
 .col-icon i {
   display: flex;
@@ -278,7 +269,7 @@ button {
   line-height: 2;
 }
 .col-icon span:nth-child(3) {
-  font-size: 15px;
+  font-size: 13px;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -333,43 +324,43 @@ button {
   margin-bottom: 10px;
   background-color: #eee;
 }
-.stores .store .box img {
+.stores .box img {
+  max-width: 100%;
   height: 200px;
-  width: 200px;
 }
-.stores .store button a {
+.stores button a {
   color: white;
   padding: 10px 20px;
   display: block;
 }
-.stores .store .box .info span {
+.stores .box .info span {
   display: block;
   margin-top: 5px;
 }
-.stores .store .box .info ul {
+.stores .box .info ul i {
   margin: 10px 0;
   color: gold;
 }
-.stores .store .box .info + span {
+.stores .box .info + span {
   color: var(--main-color);
 }
-.stores .store .box .info + span i {
+.stores .box .info + span i {
   float: right;
   cursor: pointer;
   color: black;
 }
 @media (max-width: 992px) {
-  .stores .store .box img {
+  .stores .box img {
     height: 150px;
     width: 150px;
   }
 }
 @media (max-width: 768px) {
-  .stores .store .box img {
+  .stores .box img {
     height: 150px;
     width: 150px;
   }
-  .stores .store .box img {
+  .stores .box img {
     width: 100px;
   }
   .stores .boxs {
@@ -382,6 +373,10 @@ button {
 @media (max-width: 568px) {
   .stores .store:last-child {
     justify-content: center;
+  }
+  .stores .box .info span,
+  .stores .box .info ul {
+    font-size: 12px;
   }
 }
 /* End Store */
@@ -661,25 +656,21 @@ footer .info i:hover {
   }
 }
 .manu {
-  display: flex;
-  align-items: center;
-  gap: 20px;
   margin-top: 50px;
   margin-bottom: 50px;
-  flex-wrap: wrap;
 }
-.manu > div {
+.manu .item {
   background-color: #ddd;
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 10px 10px #302d2d4a;
-  flex: 1;
-  max-width: 300px;
-  height: 300px;
+  margin-top: 20px;
 }
 .manu img {
   height: 200px;
-  width: 200px;
+  /* max-width: 200px; */
+  margin: auto;
+  display: block;
 }
 .manu .text {
   position: relative;
@@ -713,10 +704,6 @@ footer .info i:hover {
   color: var(--secand-color);
 }
 @media (max-width: 568px) {
-  .manu span {
-    left: 0;
-    top: 26px;
-  }
 }
 /* end-manu */
 .cart {
@@ -733,7 +720,7 @@ footer .info i:hover {
 }
 .cart-box {
   position: relative;
-  min-height: calc(100vh - 87px);
+  min-height: calc(100vh - 98px);
   margin-top: 10px;
 }
 .cart h3 {
@@ -802,6 +789,9 @@ footer .info i:hover {
 }
 .cart-shopping {
   position: relative;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
 }
 .cart-shopping span {
   position: absolute;
@@ -829,13 +819,6 @@ footer .info i:hover {
   display: none;
 }
 @media (max-width: 576px) {
-  .manu > div {
-    text-align: center;
-    max-width: 150px;
-  }
-  .manu img {
-    width: 130px;
-  }
   .manu {
     justify-content: center;
   }
@@ -864,8 +847,10 @@ footer .info i:hover {
 .card {
   min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  border: none;
+  padding-top: 100px;
+  padding-bottom: 50px;
 }
 .card form {
   background-color: #ddd;
@@ -921,7 +906,7 @@ footer .info i:hover {
 }
 .card-box {
   position: absolute;
-  width: 80%;
+  width: 60%;
   height: 200px;
   top: -48px;
   left: 50%;
@@ -1029,6 +1014,11 @@ footer .info i:hover {
   }
   .back img {
     height: 30px;
+  }
+}
+@media (max-width: 576px) {
+  .card-box {
+    width: 90%;
   }
 }
 /* end-card */
