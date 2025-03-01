@@ -44,7 +44,7 @@ if (darkM) {
 
 // handel Coming Soon
 if (document.querySelector(".manu-one")) {
-  let countDounDate = new Date("Dec 31, 2024 00:00:00").getTime();
+  let countDounDate = new Date("Dec 31, 2025 00:00:00").getTime();
   let x = setInterval(() => {
     let now = new Date().getTime();
     let discouns = countDounDate - now;
